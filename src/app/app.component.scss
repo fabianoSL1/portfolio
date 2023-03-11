@@ -1,0 +1,5 @@
+@use 'pages/about/about-style' as about;
+
+@mixin core($theme) {
+    @include about.init($theme)
+}

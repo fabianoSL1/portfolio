@@ -18,7 +18,7 @@ export class AboutComponent implements OnInit {
   async ngOnInit() {
     const data = await this.serviceUser.fetch() as any;
     this.user = {
-      url: data.url,
+      url: data.html_url,
       avatarUrl: data.avatar_url,
       name: data.name,
       repositories: data.public_repos,
@@ -29,6 +29,10 @@ export class AboutComponent implements OnInit {
       location: data.location,
       bio: data.bio
     }
+  }
+
+  openGitHub() {
+    window.open(this.user?.url)
   }
 
 }

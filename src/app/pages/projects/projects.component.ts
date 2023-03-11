@@ -1,6 +1,6 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { FetchProjectsService } from '../services/fetch-projects.service';
-import { Project } from '../interfaces/project';
+import { FetchProjectsService } from '../../services/fetch-projects.service';
+import { Project } from '../../interfaces/project';
 
 @Component({
   selector: 'app-projects',

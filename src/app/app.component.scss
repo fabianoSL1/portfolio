@@ -1,9 +1,19 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
 @use 'pages/about/about-style' as about;
+@use 'pages/home/home-style' as home;
+
 @use 'components/contact-form/contact-form' as contact;
 
 @mixin core($theme) {
+    $config: mat.get-color-config($theme);
+    $primary: map.get($config, 'primary');
+    $accent: map.get($config, 'accent');
+
     @include about.init($theme);
     @include contact.init($theme);
+    @include home.init($primary);
 }
 
 .wrapper-content {

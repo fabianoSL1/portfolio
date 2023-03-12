@@ -1,0 +1,7 @@
+@use '@angular/material' as mat;
+
+@mixin init($primary) {
+    .banner {
+        background-color: mat.get-color-from-palette($primary, 500);
+    }
+}

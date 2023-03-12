@@ -1,0 +1,9 @@
+@use 'sass:map';
+@use '@angular/material' as mat;
+
+@mixin init($theme) {
+
+    .contact-form {
+        background-color: mat.get-color-from-palette(mat.$gray-palette, 900);
+    }
+}

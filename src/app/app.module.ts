@@ -19,14 +19,18 @@ import { MatCardModule } from '@angular/material/card'
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
 @NgModule({
   declarations: [
     AppComponent,
     ProjectsComponent,
     HomeComponent,
     AboutComponent,
-    SideNavComponent
+    SideNavComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,10 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
     MatCardModule,
     MatExpansionModule,
     MatTabsModule,
-    MatProgressBarModule
+    MatInputModule,
+    MatFormFieldModule,
+    MatProgressBarModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

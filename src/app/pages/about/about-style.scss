@@ -9,10 +9,6 @@
     .background {
         background-color: mat.get-color-from-palette($primary, 500);
     }
-    
-    .employment h3 {
-        color: mat.get-color-from-palette($accent, 300);
-    }
 
     .date {
         color: mat.get-color-from-palette(mat.$gray-palette, 500);
@@ -21,6 +17,6 @@
     .employment .role,
     .description,
     .bio {
-        color: mat.get-color-from-palette(mat.$gray-palette, 400);
+        color: mat.get-color-from-palette(mat.$gray-palette, 300);
     }
 }

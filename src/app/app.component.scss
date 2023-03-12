@@ -1,7 +1,9 @@
 @use 'pages/about/about-style' as about;
+@use 'components/contact-form/contact-form' as contact;
 
 @mixin core($theme) {
-    @include about.init($theme)
+    @include about.init($theme);
+    @include contact.init($theme);
 }
 
 .title,
@@ -18,5 +20,5 @@
 }
 
 .margin-top-large {
-    margin-top: 2.3rem !important;
+    margin-top: 3rem !important;
 }

@@ -1,0 +1,16 @@
+.contact-form {
+    width: 100%;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-top: 2.7rem;
+    padding-bottom: 2.7rem;
+}
+
+.contact-form button {
+    max-width: fit-content;
+}

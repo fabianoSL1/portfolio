@@ -16,7 +16,7 @@
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div class="wrapper-content" *ngIf="isHandset$ | async">
+    <div class="wrapper-content" style="position: absolute" *ngIf="isHandset$ | async">
       <button
         type="button"
         aria-label="Toggle sidenav"

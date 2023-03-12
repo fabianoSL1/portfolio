@@ -58,8 +58,9 @@
 }
 
 .stack {
-    display: flex;
     gap: 1rem;
+    max-width: 620px;
+    display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -68,4 +69,5 @@
 .stack > * {
     flex-grow: 1;
     max-width: 128px;
+    width: 100%;
 }

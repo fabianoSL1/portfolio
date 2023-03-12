@@ -2,15 +2,14 @@
 @use '@angular/material' as mat;
  
 .card-user {
-    margin-top: 2rem;
     max-width: 240px;
     overflow: hidden;
+    margin: auto;
     padding: 0;
 }
 
 .card-user img {
     max-width: 100%;
-    margin-bottom: 1rem;
 }
 
 .card-user .mat-card-content {
@@ -24,4 +23,48 @@
     left: 0;
     top: 0;
     z-index: -1;
+}
+
+.bio {
+    text-align: center;
+    margin: auto;
+    max-width: 480px;
+    font-size: 0.9rems;
+}
+
+.employment h3 {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    word-wrap: break-word;
+}
+
+.employment .role {
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+
+.employment .description {
+    margin-left: 1rem;
+}
+
+.employments {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.employment * {
+    margin: 0;
+    padding: 0;
+}
+
+.stack {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.stack > * {
+    flex-grow: 1;
+    max-width: 128px;
 }

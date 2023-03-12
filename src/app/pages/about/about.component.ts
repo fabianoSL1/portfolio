@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Employment, mockEmployment } from 'src/app/interfaces/employment';
+import { Technology, mockTechnology } from 'src/app/interfaces/technology';
 import { User } from 'src/app/interfaces/user';
 import { FetchUserService } from 'src/app/services/fetch-user.service';
 
@@ -9,15 +11,25 @@ import { FetchUserService } from 'src/app/services/fetch-user.service';
 })
 export class AboutComponent implements OnInit {
   user?: User;
+  employments: Employment[];
+  stack: Technology[];
+
   private serviceUser: FetchUserService;
 
   constructor(serviceUser: FetchUserService) {
     this.serviceUser = serviceUser;
+    this.employments = mockEmployment;
+    this.stack = mockTechnology;
   }
 
   async ngOnInit() {
+    this.user = await this.fetchUser();
+  }
+
+  async fetchUser(): Promise<User> {
     const data = await this.serviceUser.fetch() as any;
-    this.user = {
+
+    return {
       url: data.html_url,
       avatarUrl: data.avatar_url,
       name: data.name,

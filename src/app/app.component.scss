@@ -6,6 +6,12 @@
     @include contact.init($theme);
 }
 
+.wrapper-content {
+  padding: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
 .title,
 .subtitle {
     text-align: center;

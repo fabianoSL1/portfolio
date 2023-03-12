@@ -17,7 +17,7 @@
 <p class="bio">{{user?.bio}}</p>
 
 <h2 class="subtitle margin-top-large">Tecnologias que mais uso</h2>
-<div class="stack">
+<div class="stack wrapper-content">
     <mat-card *ngFor="let technology of stack">
         <mat-card-header>
             <mat-card-title>{{technology.name}}</mat-card-title>
@@ -27,7 +27,7 @@
 
 <h2 class="subtitle margin-top-large">Experiences</h2>
 
-<div class="employments">
+<div class="employments wrapper-content">
     <mat-tab-group dynamicHeight color="accent">
         <mat-tab *ngFor="let employment of employments" label={{employment.company}}>
             <div class="employment margin-top-small">

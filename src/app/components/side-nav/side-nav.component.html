@@ -4,13 +4,13 @@
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-nav-list>
-      <a mat-list-item routerLink="/home" >Home</a>
-      <a mat-list-item routerLink="/projects" >Projects</a>
-      <a mat-list-item routerLink="/about" >About</a>
+      <a mat-list-item routerLink="/">Home</a>
+      <a mat-list-item routerLink="/projetos">Projects</a>
+      <a mat-list-item routerLink="/sobre">About</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <div>
+    <div class="wrapper-content">
       <button
         type="button"
         aria-label="Toggle sidenav"
@@ -20,7 +20,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
     </div>
-    <div class="wrapper-content">
+    <div>
       <ng-content></ng-content>
     </div>
 

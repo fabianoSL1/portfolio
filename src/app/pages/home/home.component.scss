@@ -1,17 +1,73 @@
-.banner {
+@use 'sass:map';
+@use '@angular/material' as mat;
+ 
+.card-user {
+    max-width: 240px;
+    overflow: hidden;
+    margin: auto;
+    padding: 0;
+}
+
+.card-user img {
+    max-width: 100%;
+}
+
+.card-user .mat-card-content {
+    padding: 0 1rem;
+}
+
+.background {
+    width: 100%;
+    height: 128px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+}
+
+.bio {
+    text-align: center;
+    margin: auto;
+    max-width: 480px;
+    font-size: 0.9rems;
+}
+
+.employment h3 {
+    font-size: 1.5rem;
+    line-height: 1.1;
+    word-wrap: break-word;
+}
+
+.employment .role {
+    font-weight: 300;
+    font-size: 1.4rem;
+}
+
+.employment .description {
+    margin-left: 1rem;
+}
+
+.employments {
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.employment * {
+    margin: 0;
+    padding: 0;
+}
+
+.stack {
+    gap: 1rem;
+    max-width: 620px;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    padding: 4rem 1rem;
+    flex-wrap: wrap;
 }
 
-.title {
-    font-size: 3rem;
-    font-weight: 500;
-}
-
-.desc {
-    font-size: 1.3rem;
-    font-weight: 300;
+.stack > * {
+    flex-grow: 1;
+    max-width: 128px;
+    width: 100%;
 }

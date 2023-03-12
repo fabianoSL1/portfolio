@@ -1,6 +1,42 @@
-<div class="banner">
-    <div>
-        <h1 class="title">Fabiano Lima</h1>
-        <p class="desc">Desenvolvedor full stack</p>
-    </div>
+<div class="background"></div>
+
+<mat-card class="card-user margin-top-large">
+    <img loading="lazy" src={{user?.avatarUrl}} />
+    <mat-card-header>
+        <mat-card-title class="margin-top-small">{{user?.name}}</mat-card-title>
+        <mat-card-subtitle>{{user?.company}} / {{user?.location}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <mat-card-actions>
+            <button  mat-button (click)="openGitHub()">GitHub</button>
+        </mat-card-actions>
+    </mat-card-content>
+</mat-card>
+
+<p class="bio margin-top-small">{{user?.bio}}</p>
+
+<h2 class="subtitle margin-top-large">Tecnologias</h2>
+<div class="stack wrapper-content">
+    <mat-card *ngFor="let technology of stack">
+        <mat-card-header>
+            <mat-card-title>{{technology.name}}</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-progress-bar mode="determinate" value="{{technology.value}}" color="{{technology.value > 50 ? 'accent': 'warn'}}"></mat-progress-bar>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<h2 class="subtitle margin-top-large">Experiences</h2>
+
+<div class="employments wrapper-content">
+    <mat-tab-group dynamicHeight color="accent">
+        <mat-tab *ngFor="let employment of employments" label={{employment.company}}>
+            <div class="employment margin-top-small">
+                <h3><span class="role">{{employment.role}}/</span>{{employment.company}}</h3>
+                <h4 class="date">{{employment.startAt.toLocaleDateString()}} - {{employment.endAt ? employment.endAt.toLocaleDateString() : 'Presente'}}</h4>
+                <p class="description">{{employment.description}}</p>
+            </div>
+        </mat-tab>
+    </mat-tab-group>
 </div>

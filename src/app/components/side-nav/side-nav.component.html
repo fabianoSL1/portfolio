@@ -3,10 +3,16 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
+    <div class="contact">
+      <span class="heading">Fabiano Lima</span>
+      <span class="info">fabianosl.dev@gmail.com</span>
+      <span class="info">21 99404-9238</span>
+    </div>
+    <mat-divider></mat-divider>
     <mat-nav-list>
       <a mat-list-item routerLink="/">Home</a>
-      <a mat-list-item routerLink="/projetos">Projects</a>
-      <a mat-list-item routerLink="/sobre">About</a>
+      <a mat-list-item routerLink="/projetos">Projetos</a>
+      <a mat-list-item routerLink="/sobre">Sobre</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>

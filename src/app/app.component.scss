@@ -5,6 +5,7 @@
 @use 'pages/home/home-style' as home;
 
 @use 'components/contact-form/contact-form' as contact;
+@use 'components/side-nav/side-nav-style.scss' as nav;
 
 @mixin core($theme) {
     $config: mat.get-color-config($theme);
@@ -14,6 +15,7 @@
     @include about.init($theme);
     @include contact.init($theme);
     @include home.init($primary);
+    @include nav.init($primary);
 }
 
 .wrapper-content {

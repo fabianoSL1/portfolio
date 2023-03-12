@@ -1,0 +1,12 @@
+<mat-card *ngIf="project">
+    <mat-card-header>
+        <mat-card-title>
+            {{project.name}}
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+        <button mat-stroked-button color="accent" (click)="open(project.repository)">GitHub</button>
+        <button mat-button disabled="{{!project.preview}}" (click)="project.preview ? open(project.preview) : false">Preview</button>
+    </mat-card-actions>
+    <span class="info">criado em <time>{{project.createAt.toLocaleDateString()}}</time></span>
+</mat-card>

@@ -1,0 +1,9 @@
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.projects .project.grow {
+    flex-grow: 1;
+}

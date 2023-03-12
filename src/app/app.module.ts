@@ -22,7 +22,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { ContactFormComponent } from './components/contact-form/contact-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field'
-import { MatInputModule } from '@angular/material/input'
+import { MatInputModule } from '@angular/material/input';
+import { ProjectCardComponent } from './components/project-card/project-card.component'
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,8 @@ import { MatInputModule } from '@angular/material/input'
     HomeComponent,
     AboutComponent,
     SideNavComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,

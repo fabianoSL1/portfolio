@@ -23,9 +23,9 @@ export class ProjectsComponent implements OnInit {
     this.projects = data.map<Project>((project: any) => {
       return {
         name: project.name,
-        fullName: project.fullName,
+        fullName: project.full_name,
         repository: project.html_url,
-        createAt: new Date(project.create_at),
+        createAt: new Date(project.created_at),
         preview: project.homepage
       }
     })

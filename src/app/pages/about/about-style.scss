@@ -19,4 +19,8 @@
     .bio {
         color: mat.get-color-from-palette(mat.$gray-palette, 300);
     }
+
+    .overflow {
+        overflow: hidden;
+    }
 }

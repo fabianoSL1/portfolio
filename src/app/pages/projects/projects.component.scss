@@ -7,3 +7,17 @@
 .projects .project.grow {
     flex-grow: 1;
 }
+
+table {
+    width: fit-content;
+    border-radius: 0.5rem;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+table .mat-header-cell {
+    text-align: center;
+}
+table .mat-cell {
+    padding: 0 1rem;
+}

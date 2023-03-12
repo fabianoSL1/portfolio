@@ -9,7 +9,7 @@ import { Project } from '../../interfaces/project';
 })
 export class ProjectsComponent implements OnInit {
   private service: FetchProjectsService;
-
+  DisplayColumns: string[] = ['name', 'repository', 'preview'];
   projects: Project[];
 
   constructor(service: FetchProjectsService) {
@@ -29,5 +29,9 @@ export class ProjectsComponent implements OnInit {
         preview: project.homepage
       }
     })
+  }
+
+  open(link: string) {
+    window.open(link)
   }
 }

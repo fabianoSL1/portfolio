@@ -23,7 +23,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input';
-import { ProjectCardComponent } from './components/project-card/project-card.component'
+import { MatTableModule } from '@angular/material/table'
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +32,6 @@ import { ProjectCardComponent } from './components/project-card/project-card.com
     AboutComponent,
     SideNavComponent,
     ContactFormComponent,
-    ProjectCardComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +50,8 @@ import { ProjectCardComponent } from './components/project-card/project-card.com
     MatInputModule,
     MatFormFieldModule,
     MatProgressBarModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

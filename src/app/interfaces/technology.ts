@@ -1,21 +1,26 @@
 export interface Technology {
     name: string;
+    value: number;
 }
 
 export const mockTechnology: Technology[] = [
     {
-        name: 'TypeScript'
+        name: 'TypeScript',
+        value: 90
     },
     {
-        name: 'Python'
+        name: 'Python',
+        value: 70
     },
     {
-        name: 'React'
+        name: 'Sql',
+        value: 30
     },
     {
-        name: 'MySql'
-    },
-    {
-        name: 'aws'
+        name: 'Java',
+        value: 40
+    },{
+        name: 'Aws',
+        value: 70
     }
 ]

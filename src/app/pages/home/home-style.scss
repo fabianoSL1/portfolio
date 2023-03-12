@@ -10,7 +10,8 @@
         background-color: mat.get-color-from-palette($primary, 500);
     }
 
-    .date {
+    .date,
+    .stat p {
         color: mat.get-color-from-palette(mat.$gray-palette, 500);
     }
 

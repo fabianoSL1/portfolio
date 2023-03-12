@@ -1,19 +1,40 @@
 <div class="background"></div>
 
-<mat-card class="card-user margin-top-large">
-    <img loading="lazy" src={{user?.avatarUrl}} />
+<mat-card class="card-user margin-top-large" *ngIf="user; else placeHolder">
+    <img loading="lazy" src={{user.avatarUrl}} />
     <mat-card-header>
-        <mat-card-title class="margin-top-small">{{user?.name}}</mat-card-title>
-        <mat-card-subtitle>{{user?.company}} / {{user?.location}}</mat-card-subtitle>
+        <mat-card-title class="margin-top-small">{{user.name}}</mat-card-title>
+        <mat-card-subtitle>{{user.company}} / {{user.location}}</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content>
-        <mat-card-actions>
-            <button  mat-button (click)="openGitHub()">GitHub</button>
-        </mat-card-actions>
-    </mat-card-content>
+    <mat-card-actions class="fix-padding">
+        <button  mat-button (click)="openGitHub()" color="primary">GitHub</button>
+    </mat-card-actions>
 </mat-card>
 
+<ng-template #placeHolder>
+    <mat-card>
+        
+    </mat-card>
+</ng-template>
+
 <p class="bio margin-top-small">{{user?.bio}}</p>
+
+<div class="stats margin-top-small">
+    <div class="stat">
+        <span>{{user?.repositories}}</span>
+        <p>repositórios</p>
+    </div>
+    <mat-divider vertical></mat-divider>
+    <div class="stat">
+        <span>{{user?.followers}}</span>
+        <p>seguidores</p>
+    </div>
+    <mat-divider vertical></mat-divider>
+    <div class="stat">
+        <span>{{user?.following}}</span>
+        <p>seguindo</p>
+    </div>
+</div>
 
 <h2 class="subtitle margin-top-large">Tecnologias</h2>
 <div class="stack wrapper-content">
@@ -35,7 +56,7 @@
             <div class="employment margin-top-small">
                 <h3><span class="role">{{employment.role}}/</span>{{employment.company}}</h3>
                 <h4 class="date">{{employment.startAt.toLocaleDateString()}} - {{employment.endAt ? employment.endAt.toLocaleDateString() : 'Presente'}}</h4>
-                <p class="description">{{employment.description}}</p>
+                <p class="description margin-top-small">{{employment.description}}</p>
             </div>
         </mat-tab>
     </mat-tab-group>

@@ -9,11 +9,13 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { HomeComponent } from './home.component';
 import { HomeRoutingModule } from './home-routing.module';
+import { CardUserComponent } from './card-user/card-user.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
+    CardUserComponent,
   ],
   imports: [
     HomeRoutingModule,

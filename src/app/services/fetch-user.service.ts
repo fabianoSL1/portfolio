@@ -7,18 +7,14 @@ import { environment } from 'src/environments/environment';
 })
 export class FetchUserService {
   private http: HttpClient;
+  userData: unknown;
 
   constructor(http: HttpClient) {
     this.http = http;
   }
 
-  fetch(): Promise<unknown> {
+  fetch() {
     const url = `${environment.gitHubApi}/users/${environment.user}`;
-
-    return new Promise(resolve => {
-      this.http.get(url)
-        .subscribe(data => resolve(data))
-    })
-    
+    return this.http.get(url);
   }
 }

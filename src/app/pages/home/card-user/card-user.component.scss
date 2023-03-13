@@ -1,0 +1,19 @@
+.card-user {
+    max-width: 240px;
+    overflow: hidden;
+    margin: auto;
+    padding: 0;
+}
+
+.card-user img {
+    max-width: 100%;
+}
+
+.card-user .mat-card-content {
+    padding: 0 1rem;
+}
+
+.fix-padding {
+    padding: 8px !important;
+    margin: 0 !important;
+}

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Employment, mockEmployment } from 'src/app/interfaces/employment';
 import { Technology, mockTechnology } from 'src/app/interfaces/technology';
 import { User } from 'src/app/interfaces/user';
@@ -9,11 +10,12 @@ import { FetchUserService } from 'src/app/services/fetch-user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
   user?: User;
   employments: Employment[];
   stack: Technology[];
 
+  private subscription: Subscription = new Subscription;
   private serviceUser: FetchUserService;
 
   constructor(serviceUser: FetchUserService) {
@@ -22,25 +24,32 @@ export class HomeComponent implements OnInit {
     this.stack = mockTechnology;
   }
 
-  async ngOnInit() {
-    this.user = await this.fetchUser();
+  ngOnInit(): void {
+    const parseData = (data: any) => {
+      this.user = {
+        url: data.html_url,
+        avatarUrl: data.avatar_url,
+        name: data.name,
+        repositories: data.public_repos,
+        followers: data.followers,
+        following: data.following,
+        company: data.company,
+        email: data.email,
+        location: data.location,
+        bio: data.bio
+      }
+    }
+    if(this.serviceUser.userData)
+      parseData(this.serviceUser.userData)
+    else
+      this.subscription = this.serviceUser.fetch().subscribe((data: any) => {
+        this.serviceUser.userData = data;
+        parseData(data);
+      });
   }
 
-  async fetchUser(): Promise<User> {
-    const data = await this.serviceUser.fetch() as any;
-
-    return {
-      url: data.html_url,
-      avatarUrl: data.avatar_url,
-      name: data.name,
-      repositories: data.public_repos,
-      followers: data.followers,
-      following: data.following,
-      company: data.company,
-      email: data.email,
-      location: data.location,
-      bio: data.bio
-    }
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   openGitHub() {

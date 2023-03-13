@@ -17,18 +17,25 @@ export class ProjectsComponent implements OnInit {
     this.projects = [];
   }
 
-  async ngOnInit() {
-    let data = await this.service.fetch() as Array<any>;
-
-    this.projects = data.map<Project>((project: any) => {
-      return {
+  ngOnInit() {
+    const parseData = (data: any[]) => {
+      return data.map<Project>((project: any) => ({
         name: project.name,
         fullName: project.full_name,
         repository: project.html_url,
         createAt: new Date(project.created_at),
         preview: project.homepage
-      }
-    })
+      }))
+    }
+
+    if (this.service.response)
+      this.projects = parseData(this.service.response as any[]);
+    else
+      this.service.fetch()
+        .subscribe((response: any) => {
+          this.service.response = response;
+          this.projects = parseData(response as any[]);
+        });
   }
 
   open(link: string) {

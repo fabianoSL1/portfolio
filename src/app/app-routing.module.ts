@@ -1,15 +1,21 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ProjectsComponent } from './pages/projects/projects.component';
-import { HomeComponent } from './pages/home/home.component';
+
+import { PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'projetos', component: ProjectsComponent},
+  {
+    path: '',
+    loadChildren: () => import('./pages/home/home.module').then(module => module.HomeModule)
+  },
+  {
+    path: 'projetos',
+    loadChildren: () => import('./pages/projects/projects.module').then(module => module.ProjectsModule)
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

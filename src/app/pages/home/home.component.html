@@ -1,11 +1,14 @@
 <div class="background"></div>
 
 <mat-card class="card-user margin-top-large" *ngIf="user; else placeHolder">
-    <img loading="lazy" src={{user.avatarUrl}} />
+    <img src={{user.avatarUrl}} />
     <mat-card-header>
         <mat-card-title class="margin-top-small">{{user.name}}</mat-card-title>
         <mat-card-subtitle>{{user.company}} / {{user.location}}</mat-card-subtitle>
     </mat-card-header>
+    <mat-card-content>
+        <p>{{user.bio}}</p>
+    </mat-card-content>
     <mat-card-actions class="fix-padding">
         <button  mat-button (click)="openGitHub()" color="primary">GitHub</button>
     </mat-card-actions>
@@ -17,7 +20,6 @@
     </mat-card>
 </ng-template>
 
-<p class="bio margin-top-small">{{user?.bio}}</p>
 
 <div class="stats margin-top-small">
     <div class="stat">

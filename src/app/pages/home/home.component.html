@@ -1,23 +1,25 @@
 <div class="background"></div>
 
-<app-card-user [user]="user" *ngIf="user"></app-card-user>
+<ng-container *ngIf="user">
+    <app-card-user [user]="user"></app-card-user>
 
-<div class="stats margin-top-small">
-    <div class="stat">
-        <span>{{user?.repositories}}</span>
-        <p>repositórios</p>
+    <div class="stats margin-top-small">
+        <div class="stat">
+            <span>{{user.repositories}}</span>
+            <p>repositórios</p>
+        </div>
+        <mat-divider vertical></mat-divider>
+        <div class="stat">
+            <span>{{user.followers}}</span>
+            <p>seguidores</p>
+        </div>
+        <mat-divider vertical></mat-divider>
+        <div class="stat">
+            <span>{{user.following}}</span>
+            <p>seguindo</p>
+        </div>
     </div>
-    <mat-divider vertical></mat-divider>
-    <div class="stat">
-        <span>{{user?.followers}}</span>
-        <p>seguidores</p>
-    </div>
-    <mat-divider vertical></mat-divider>
-    <div class="stat">
-        <span>{{user?.following}}</span>
-        <p>seguindo</p>
-    </div>
-</div>
+</ng-container>
 
 <h2 class="subtitle margin-top-large">Tecnologias</h2>
 <div class="stack wrapper-content">

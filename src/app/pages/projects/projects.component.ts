@@ -28,14 +28,8 @@ export class ProjectsComponent implements OnInit {
       }))
     }
 
-    if (this.service.response)
-      this.projects = parseData(this.service.response as any[]);
-    else
-      this.service.fetch()
-        .subscribe((response: any) => {
-          this.service.response = response;
-          this.projects = parseData(response as any[]);
-        });
+    if (this.service.projects)
+      this.projects = parseData(this.service.projects as any[]);
   }
 
   open(link: string) {

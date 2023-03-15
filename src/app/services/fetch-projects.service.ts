@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
 })
 export class FetchProjectsService {
   private http: HttpClient;
-  response: unknown;
+  projects: unknown[];
   
   constructor(http: HttpClient) {
     this.http = http;

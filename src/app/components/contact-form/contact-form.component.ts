@@ -1,7 +1,8 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Contact } from 'src/app/interfaces/contact';
+import { Message } from 'src/app/interfaces/message';
 import { FetchContactService } from 'src/app/services/fetch-contact.service';
 
 
@@ -14,6 +15,8 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   
   private contactService: FetchContactService;
   private subscription: Subscription;
+
+  @Output() messageEvent: EventEmitter<Message> = new EventEmitter();
 
   contactInfo: Contact;
   
@@ -37,6 +40,6 @@ export class ContactFormComponent implements OnInit, OnDestroy {
   }
 
   sendMessage() {
-
+    this.messageEvent.emit(this.contactForm.value);
   }
 }

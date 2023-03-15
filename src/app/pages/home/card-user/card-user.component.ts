@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from 'src/app/interfaces/user';
 
 @Component({
@@ -6,13 +6,8 @@ import { User } from 'src/app/interfaces/user';
   templateUrl: './card-user.component.html',
   styleUrls: ['./card-user.component.scss']
 })
-export class CardUserComponent implements OnInit {
+export class CardUserComponent  {
   @Input() user: User;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   openGitHub() {
     window.open(this.user.url);

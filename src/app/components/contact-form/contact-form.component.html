@@ -1,5 +1,13 @@
 <div class="contact-form margin-top-large">
-    <form [formGroup]="contactForm" class="wrapper-content">
+    <div class="wrapper-content">
+    <ng-container *ngIf="contactInfo">
+        <span class="contact-info">{{this.contactInfo.contact.name}}</span>
+        <span class="contact-info">{{this.contactInfo.contact.tel}}</span>
+        <span class="contact-info">{{this.contactInfo.contact.email}}
+            <a href="mailto:{{this.contactInfo.contact.email}}?subject={{this.contactInfo.subject_matter}}&body={{this.contactInfo.comment}}" mat-icon-button color="primary"><mat-icon>email</mat-icon></a>
+        </span>
+    </ng-container>
+    <form [formGroup]="contactForm">
         <mat-form-field appearance="outline" color="accent">
             <mat-label>Nome</mat-label>
             <input matInput type="text" formControlName="name">
@@ -17,4 +25,5 @@
 
         <button mat-flat-button color="primary" type="button" (click)="sendMessage()">Enviar</button>
     </form>
+    </div>
 </div>

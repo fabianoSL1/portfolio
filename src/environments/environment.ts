@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   gitHubApi: 'https://api.github.com',
-  user: 'fabianosl1'
+  user: 'fabianosl1',
+  contactApi: 'https://63a59f6af8f3f6d4abfb383d.mockapi.io/api-portfolio'
 };
 
 /*

@@ -39,13 +39,9 @@ export class HomeComponent implements OnInit, OnDestroy {
         bio: data.bio
       }
     }
+
     if(this.serviceUser.userData)
       parseData(this.serviceUser.userData)
-    else
-      this.subscription = this.serviceUser.fetch().subscribe((data: any) => {
-        this.serviceUser.userData = data;
-        parseData(data);
-      });
   }
 
   ngOnDestroy(): void {

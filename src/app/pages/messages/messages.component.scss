@@ -1,0 +1,14 @@
+.messages {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.messages .mat-card {
+    width: fit-content;
+}
+
+.messages .detail {
+    font-size: 0.9rem;
+    margin: 0;
+}

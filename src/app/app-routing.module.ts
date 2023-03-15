@@ -8,7 +8,11 @@ const routes: Routes = [
   },
   {
     path: 'projetos',
-    loadChildren: () => import('./pages/projects/projects.module').then(module => module.ProjectsModule)
+    loadChildren: () => import('./pages/projects/projects.module').then(module => module.ProjectsModule),
+  },
+  {
+    path: 'mensagens',
+    loadChildren: () => import('./pages/messages/messages.module').then(module => module.MessagesModule)
   },
 ];
 

@@ -1,0 +1,14 @@
+<div class="wrapper-content margin-top-large">
+    <h1>Mensagens</h1>
+    <div class="messages">
+        <ng-container *ngFor="let message of this.backendService.messages">
+            <mat-card>
+                <mat-card-content>
+                    <p>{{message.message}}</p>
+                    <p class="detail">autor: {{message.name}}</p>
+                    <p class="detail">id: {{message.id}}</p>
+                </mat-card-content>
+            </mat-card>
+        </ng-container>
+    </div>
+</div>

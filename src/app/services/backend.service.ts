@@ -7,8 +7,9 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class BackendService {
-  private http: HttpClient
-
+  private http: HttpClient;
+  messages: Message[];
+  
   constructor(httpClient: HttpClient) {
     this.http = httpClient;   
   }

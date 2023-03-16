@@ -11,40 +11,26 @@ import { FetchUserService } from './services/fetch-user.service';
 })
 export class AppComponent implements OnInit {
   title = 'portfolio';
-  
-  private backendService: BackendService;
-  private userService: FetchUserService;
-  private projectsService: FetchProjectsService;
 
-  constructor(backendService: BackendService, userService: FetchUserService, projectsService: FetchProjectsService) {
+  private backendService: BackendService;
+  constructor(backendService: BackendService) {
     this.backendService = backendService;
-    this.userService = userService;
-    this.projectsService = projectsService;
   }
 
   ngOnInit(): void {
-    this.fetchMessages()
+    this.fetchMessages();
   }
-  
+
   fetchMessages() {
     this.backendService.getMessages()
       .subscribe(data => {
         let messages = data as Message[];
         this.backendService.messages = messages.reverse();
       })
-    
-      this.userService.fetch()
-        .subscribe(data => {
-          this.userService.userData = data
-        })
-
-      this.projectsService.fetch()
-        .subscribe(data => {
-          this.projectsService.projects = data as unknown[]
-        })
   }
+
   handleMessage(message: Message) {
     this.backendService.postMessage(message)
-      .subscribe(data => this.fetchMessages())
+      .subscribe(data => this.fetchMessages());
   }
 }

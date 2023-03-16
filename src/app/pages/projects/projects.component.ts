@@ -35,7 +35,7 @@ export class ProjectsComponent implements OnInit {
         .subscribe(response => {
           let data = response as unknown[];
           this.projectsService.projects = data;
-          parseData(data);
+          this.projects = parseData(data);
         })
     }
   }

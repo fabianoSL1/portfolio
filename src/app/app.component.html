@@ -1,4 +1,6 @@
 <app-side-nav>
-    <router-outlet></router-outlet>
+    <div style="min-height: 60vh;">
+        <router-outlet></router-outlet>
+    </div>
     <app-contact-form class="footer" (messageEvent)="handleMessage($event)"></app-contact-form>
 </app-side-nav>

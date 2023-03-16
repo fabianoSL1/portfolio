@@ -1,4 +1,4 @@
-import { Component, Injectable, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FetchProjectsService } from '../../services/fetch-projects.service';
 import { Project } from '../../interfaces/project';
 
@@ -8,12 +8,12 @@ import { Project } from '../../interfaces/project';
   styleUrls: ['./projects.component.scss']
 })
 export class ProjectsComponent implements OnInit {
-  private service: FetchProjectsService;
+  private projectsService: FetchProjectsService;
   DisplayColumns: string[] = ['name', 'repository', 'preview'];
   projects: Project[];
 
   constructor(service: FetchProjectsService) {
-    this.service = service;
+    this.projectsService = service;
     this.projects = [];
   }
 
@@ -28,8 +28,16 @@ export class ProjectsComponent implements OnInit {
       }))
     }
 
-    if (this.service.projects)
-      this.projects = parseData(this.service.projects as any[]);
+    if (this.projectsService.projects) {
+      this.projects = parseData(this.projectsService.projects as any[]);
+    } else {
+      this.projectsService.fetch()
+        .subscribe(response => {
+          let data = response as unknown[];
+          this.projectsService.projects = data;
+          parseData(data);
+        })
+    }
   }
 
   open(link: string) {

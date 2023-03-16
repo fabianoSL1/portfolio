@@ -10,21 +10,24 @@ import { FetchUserService } from 'src/app/services/fetch-user.service';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit, OnDestroy {
+export class HomeComponent implements OnInit {
   user?: User;
   employments: Employment[];
   stack: Technology[];
 
-  private subscription: Subscription = new Subscription;
-  private serviceUser: FetchUserService;
+  private userService: FetchUserService;
 
   constructor(serviceUser: FetchUserService) {
-    this.serviceUser = serviceUser;
+    this.userService = serviceUser;
     this.employments = mockEmployment;
     this.stack = mockTechnology;
+    
+    
   }
 
   ngOnInit(): void {
+    
+
     const parseData = (data: any) => {
       this.user = {
         url: data.html_url,
@@ -40,12 +43,15 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
     }
 
-    if(this.serviceUser.userData)
-      parseData(this.serviceUser.userData)
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe();
+    if(this.userService.userData){
+      parseData(this.userService.userData)
+    } else {
+      this.userService.fetch()
+        .subscribe(data => {
+          this.userService.userData = data
+          parseData(data)
+        })
+    }
   }
 
   openGitHub() {
